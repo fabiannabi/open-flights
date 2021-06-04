@@ -1,10 +1,14 @@
-import React, {Component} from 'react'
+import React from 'react'
+import Airlines from './Airlines/Airlines'
+import Airline from './Airline/Airline'
+import { Route, Switch } from 'react-router-dom'
 
 const App = ()=> {
 	return (
-	<div >
-		hello_react
-	</div>
+	<Switch >
+		<Route exact path="/" component={Airlines}/>
+		<Route exact path="/airlines/:slug" component={Airline}/>
+	</Switch>
 	)
 }
 
