@@ -8,11 +8,9 @@ const Airlines = () => {
 	useEffect(() => {
 		//Get all of Airlines from the Api endpoints
 		//Update Airlines in our state
-		axios.get('/api/v1/airlines.json').then(response =>{
-			setAirlines(response.data.data)
-
-			}).catch(err => console.log(err))
-		},[airlines.length])
+			axios.get('/api/v1/airlines.json').then(response => setAirlines(response.data.data))
+			.catch(err => console.log(err) )
+	}, [airlines.length])
 
 	const grid = airlines.map(airline =>{
 		return (
