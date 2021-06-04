@@ -1,5 +1,6 @@
-import React ,  {useState, useEffect, Fragment} from 'react'
+import React ,  {useState, useEffect} from 'react'
 import axios from 'axios'
+import AirlineCard from './AirlineCard'
 
 const Airlines = () => {
 
@@ -16,18 +17,24 @@ const Airlines = () => {
 
 	const list = airlines.map(airline =>{
 		return (
-			<li key={airline.attributes.name}>{airline.attributes.name}</li>
+			<AirlineCard
+				key={airline.attributes.name}
+			 	attributes={airline.attributes}/>
 		)
 	})
 
 	return (
-		<Fragment>
-			<div>This is the Airlines show view for the app
+		<div className="home">
+			<div className='header'>
+				<h1>Open Fligths</h1>
+				<div className='subheader'>Honest, unbaised Fligths reviewes.</div>
+			</div>
+			<div className="grid-container">
 				<ul>
 					{list}
 				</ul>
 			</div>
-		</Fragment>
+		</div>
 	)
 }
 
