@@ -1,0 +1,22 @@
+.wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+}
+
+.column-main {
+	background: #fff;
+	height: 100vh;
+	overflow: scroll;
+}
+.column {
+	background: #000;
+	height: 100vh;
+	overflow: scroll;
+
+}
+
+.main {
+	padding-left: 50px;
+}
