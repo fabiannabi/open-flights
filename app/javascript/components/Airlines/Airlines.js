@@ -3,7 +3,6 @@ import axios from 'axios'
 import AirlineCard from './AirlineCard'
 
 const Airlines = () => {
-
 	const [airlines, setAirlines] = useState([])
 
 	useEffect(() => {
@@ -15,7 +14,7 @@ const Airlines = () => {
 			}).catch(err => console.log(err))
 		},[airlines.length])
 
-	const list = airlines.map(airline =>{
+	const grid = airlines.map(airline =>{
 		return (
 			<AirlineCard
 				key={airline.attributes.name}
@@ -30,9 +29,7 @@ const Airlines = () => {
 				<div className='subheader'>Honest, unbaised Fligths reviewes.</div>
 			</div>
 			<div className="grid-container">
-				<ul>
-					{list}
-				</ul>
+				{grid}
 			</div>
 		</div>
 	)
