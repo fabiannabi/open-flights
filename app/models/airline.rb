@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
+# Will create an airline model that transfers name to slug
 class Airline < ApplicationRecord
   has_many :reviews
 
-  #this will run the method before its inserted in de DB
+  # this will run the method before its inserted in de DB
   before_create :slugify
 
   # this method will take the name before passing it to the data base and make it a slug
