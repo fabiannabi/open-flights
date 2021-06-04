@@ -1,6 +1,10 @@
 module Api
   module V1
     class AirlinesController < ApplicationController
+
+      #adds protections to terminate session against CSRF attack
+      protect_from_forgery with: :null_session
+
       def index
         airlines = Airline.all
 
@@ -14,7 +18,7 @@ module Api
       end
 
       def create
-        airline = Airlines.new(airline_params)
+        airline = Airline.new(airline_params)
         if airline.save
           render json: AirlineSerializer.new(airline).serialized_json
         else
@@ -24,7 +28,7 @@ module Api
 
       def update
         airline = Airline.find_by(slug: params[:slug])
-        if airline.update(ariline_params)
+        if airline.update(airline_params)
           render json: AirlineSerializer.new(airline, options).serialized_json
         else
           render json: { error: airline.errors.messages }, status: 422
@@ -33,7 +37,7 @@ module Api
 
       def destroy
         airline = Airline.find_by(slug: params[:slug])
-        if airline.destroy(ariline_params)
+        if airline.destroy
           head :no_content
         else
           render json: { error: airline.errors.messages }, status: 422
