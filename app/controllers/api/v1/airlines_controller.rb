@@ -8,7 +8,7 @@ module Api
       end
 
       def show
-        airline = Airline.find_by(params[:slug])
+        airline = Airline.find_by(slug: params[:slug])
 
         render json: AirlineSerializer.new(airline).serialized_json
       end
@@ -23,7 +23,7 @@ module Api
       end
 
       def update
-        airline = Airline.find_by(params[:slug])
+        airline = Airline.find_by(slug: params[:slug])
         if airline.update(ariline_params)
           render json: AirlineSerializer.new(airline, options).serialized_json
         else
@@ -32,7 +32,7 @@ module Api
       end
 
       def destroy
-        airline = Airline.find_by(params[:slug])
+        airline = Airline.find_by(slug: params[:slug])
         if airline.destroy(ariline_params)
           head :no_content
         else
