@@ -6,8 +6,6 @@ const { name, image_url , avg_score} = props.attributes
 
 const review = props.reviews.length
 
-console.log(review, "this is review")
-console.log(props)
 	return (
 		<div className="header-wrapper">
 			<h1 className="airline-name "><img src={image_url} alt={name}/>{name}</h1>
