@@ -25,17 +25,47 @@ const Airline = (props) => {
 	},[])
 
 
-	const handleChange = (e) => {
+	const handleChange = (e, prevstate) => {
 		e.preventDefault()
+		//when adding to the state always use make a copy do not modify the original
+		//first take the object values
+		const {name, value} = e.target
 
-		console.log(e.target.name, e.target.value)
+		//to set the state, pass the original object, spread it and pass the new one
+		// ( (original) => ({...origin, [new_key]:new:value}) )
+		setReview(review => ( {
+				...review,
+				[name]: value
+
+			})
+		)
+
 
 	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		console.log(e.target.name, e.target.value)
+		const airline_id = airline.data.id
+
+		//set up a csfrToken to prevent attacks
+		const cstf_tokens = document.querySelector("[name=csrf-token]").content
+
+		axios.defaults.headers.common['X-CSRF-TOKEN'] = cstf_tokens
+
+		//set up the payload data as second argument
+		axios.post('/api/v1/reviews', {review, airline_id}).then(response => {
+
+			const included = [... airline.included, response.data.data]
+
+			setAirline({ ...airline, included })
+			setReview({ title: '', description: '', score: 0 })
+		}).catch(err => {
+
+		})
+
 	}
+
+
 	// pass the handleSubmit and handleChange as props with the same name as params
 	// and pass the review state to fill it out in the form with the value
 	return (
