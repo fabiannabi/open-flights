@@ -21,11 +21,11 @@ const Airline = (props) => {
 		axios.get(`/api/v1/airlines/${slug}`).then((response) => {
 			setAirline(response.data)
 			setLoaded(true)
-		}).catch((err) => consolelog(err) )
+		}).catch((err) => console.log(err) )
 	},[])
 
 
-	const handleChange = (e, prevstate) => {
+	const handleChange = (e) => {
 		e.preventDefault()
 		//when adding to the state always use make a copy do not modify the original
 		//first take the object values
@@ -39,8 +39,14 @@ const Airline = (props) => {
 
 			})
 		)
+	}
 
 
+
+	const setRating = (score, e) => {
+		e.preventDefault()
+		console.log(e, score)
+		setReview({...review, score})
 	}
 
 	const handleSubmit = (e) => {
@@ -86,6 +92,7 @@ const Airline = (props) => {
 				<ReviewForm
 					handleChange={handleChange}
 					handleSubmit={handleSubmit}
+					setRating={setRating}
 					attributes={airline.data.attributes}
 					review={review}
 				/>
