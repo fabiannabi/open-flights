@@ -2,6 +2,7 @@ import axios from 'axios';
 import React ,  {useState, useEffect, Fragment} from 'react'
 import Header from './Header'
 import ReviewForm from './ReviewForm'
+import ReviewsCards from './Reviews'
 
 const Airline = (props) => {
 
@@ -45,7 +46,6 @@ const Airline = (props) => {
 
 	const setRating = (score, e) => {
 		e.preventDefault()
-		console.log(e, score)
 		setReview({...review, score})
 	}
 
@@ -66,9 +66,8 @@ const Airline = (props) => {
 			setAirline({ ...airline, included })
 			setReview({ title: '', description: '', score: 0 })
 		}).catch(err => {
-
+				console.log(err)
 		})
-
 	}
 
 
@@ -85,7 +84,11 @@ const Airline = (props) => {
 							attributes ={airline.data.attributes}
 							reviews = {airline.included}
 						/>
-					<div className="reviews"></div>
+					<div className="reviews">
+						<ReviewsCards
+							attributes ={airline.included}
+						/>
+					</div>
 				</div>
 			</div>
 			<div className="column">
