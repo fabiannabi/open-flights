@@ -3,19 +3,17 @@ import React, {Fragment} from 'react'
 const ReviewForm = (props) => {
 
 	const ratingOptions = [ 5,4,3,2,1].map((score, index)=>{
-		return(	<Fragment>
+		return(	<Fragment key={index}>
 				<input type="radio"
 					value={score}
 					name="rating"
 					defaultChecked={props.review.score == score}
 					onClick={props.setRating.bind(this, score)}
 					id={`rating-${score}`}/>
-				<div className="star" onClick={props.setRating.bind(this, score)}>{`${score}★`}</div>
+				<div className="star"value={score} defaultChecked={props.review.score == score} onClick={props.setRating.bind(this, score)}>{`${score}★`}</div>
 			</Fragment>
 		)
 	})
-
-	console.log(props.review.score)
 
 	return(
 		<div className="form-wrapper">
