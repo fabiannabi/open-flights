@@ -1,9 +1,9 @@
 
 .airline-name {
-	font-size: 4rem;
+	font-size: 2rem;
 	display: flex;
   align-items: center;
-	padding-left: 10px;
+	justify-content: center;
 }
 .header-wrapper {
 	padding: 50px 100px 50px 0px;

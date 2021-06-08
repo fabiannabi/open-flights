@@ -1,0 +1,135 @@
+
+.raiting-box {
+	background: #fff;
+	display: flex;
+	justify-content: center;
+	padding: 0rem 0rem 0rem 6rem;
+	flex-direction:row-reverse;
+	position: relative;
+	align-items: baseline;
+}
+
+.raiting-box input {
+	margin-right: 30px;
+	visibility:hidden;
+}
+
+.star {
+	cursor: pointer;
+
+}
+.star-review {
+	cursor: pointer;
+	color: rgb(214, 146, 19);
+}
+.star-review-card{
+	color: rgb(214, 146, 19);
+}
+
+.rating-stars {
+	display: flex;
+  align-items: center;
+  justify-content: center;
+	padding-top: 15px;
+}
+
+
+.star:hover{
+	cursor: pointer;
+	color: rgb(214, 146, 19);
+}
+
+
+.raiting-box label {
+	cursor: pointer;
+	width:40px;
+	height:40px;
+}
+
+.field {
+	border-radius: 4px;
+
+}
+.field  input {
+	border-radius: 4px;
+	min-height: 50px;
+	border: 1px solid rgb(143, 139, 139);
+	margin: 12px 0px;
+	padding: 12px;
+	width: 96%;
+}
+
+.field  textarea {
+
+	width: 80%;
+	min-height: 80px;
+	border-radius: 4px;
+	border: 1px solid rgb(143, 139, 139);
+	margin: 12px 0px;
+	padding: 12px;
+}
+
+.form-wrapper {
+	background: rgb(229, 228, 226);
+	padding: 20px;
+	height: 100vh;
+
+}
+
+.submit{
+	color: #fff;
+	background-color: black;
+	border-radius: 4px;
+	font-size: 18px;
+	padding: 12px;
+	transition:ease-in-out 0.4s;
+	margin-top: 50px;
+	width:100%;
+}
+
+
+.submit:hover{
+	color:black;
+	background-color: white;
+	border-radius: 4px;
+	border: 1px solid rgb(255, 255, 255);
+}
+
+
+.headline {
+	padding: 20px;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+
+}
+
+.rating-container{
+	text-align: center;
+	border-radius: 4px;
+	font-size: 18px;
+	padding: 40px 0px 10px 0px;
+	border: 1px solid rgb(173, 171, 171);
+	background: #fff;
+}
+
+.rating-container-card{
+	text-align: start;
+	border-radius: 4px;
+	font-size: 18px;
+	padding: 40px 0px 10px 20px;
+	border: 1px solid rgb(173, 171, 171);
+	background: #fff;
+	width:90%;
+	margin-bottom: 10px;
+}
+
+.rating-title {
+	font-size: 20px;
+}
+.rating-title-card {
+	padding: 10px 0;
+	font-size: 25px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
